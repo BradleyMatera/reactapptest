@@ -1,176 +1,110 @@
-"use client";
+const currentLinks = [
+  {
+    href: "https://bradleymatera.dev/",
+    title: "Current website",
+    description: "My active website, current positioning, and contact information.",
+  },
+  {
+    href: "https://bradleymatera.dev/services/",
+    title: "Services",
+    description: "Current web design, development, SEO, accessibility, and support services.",
+  },
+  {
+    href: "https://bradleymatera.dev/work/",
+    title: "Work and case studies",
+    description: "Current project work, outcomes, and examples of how I approach client problems.",
+  },
+  {
+    href: "https://bradleymatera.dev/demos/",
+    title: "Industry demos",
+    description: "Purpose-built website concepts for the industries and businesses I serve.",
+  },
+  {
+    href: "https://bradleymatera.dev/pricing/",
+    title: "Pricing",
+    description: "Current packages, pricing guidance, and ways to work with me.",
+  },
+  {
+    href: "https://bradleymatera.dev/recruiter/",
+    title: "Technical portfolio",
+    description: "Developer experience, technical background, and information for recruiters.",
+  },
+];
 
-import Image from "next/image";
-import { Card, CardBody, Button } from "@nextui-org/react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { FaArrowDown } from "react-icons/fa";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-
-const basePath = process.env.NODE_ENV === "production" ? "/Professional-Portfolio-Website" : "";
-
-/**
- * Refactored for UI/UX, NextUI, Tailwind, accessibility, and polish.
- * Features: hero section, rich typography, gradients, motion, responsive, accessible.
- */
 export default function Home() {
   return (
-    <>
-      <Navigation />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-br from-[#0a192f] via-[#0a192f] to-[#1c1c1c]">
-          {/* Background Image with Next.js Image component for basePath support */}
-          <div className="absolute inset-0 z-0 opacity-20">
-            <Image
-              src={`${basePath}/imgs/portfolio-hero-background.png`}
-              alt="Background"
-              fill
-              className="object-cover"
-              priority
-            />
+    <main className="min-h-screen bg-[#07101f] text-slate-100">
+      <section className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
+        <div className="max-w-3xl">
+          <p className="mb-5 inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm font-semibold tracking-wide text-amber-200">
+            Archived portfolio · Deprecated July 2026
+          </p>
+
+          <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            This is my old portfolio.
+          </h1>
+
+          <p className="mt-6 text-lg leading-8 text-slate-300 sm:text-xl">
+            This GitHub Pages site is an early portfolio from a previous stage of my
+            education and development work. I keep it online only as a historical
+            archive. It no longer represents my current services, design standards,
+            projects, pricing, or business.
+          </p>
+
+          <div className="mt-8 rounded-2xl border border-red-300/25 bg-red-400/10 p-5 text-red-100">
+            <p className="font-bold">Do not use this page as my current portfolio.</p>
+            <p className="mt-2 leading-7 text-red-100/85">
+              For accurate information, examples, and ways to work with me, use
+              bradleymatera.dev.
+            </p>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-8"
-            >
-              <Image
-                src={`${basePath}/imgs/profile-hero-headshot.png`}
-                alt="Bradley Matera Profile"
-                width={200}
-                height={200}
-                className="rounded-full mx-auto shadow-2xl border-4 border-[#fb8b24]"
-                priority
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <Card className="bg-[#0a192f]/70 backdrop-blur-lg border border-[#fb8b24]/20">
-                <CardBody className="p-8 sm:p-12">
-                  <motion.h1
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    Hi, I'm{" "}
-                    <span className="text-[#64ffda]">Brad Matera</span>
-                  </motion.h1>
-
-                  <motion.h2
-                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6 text-[#fb8b24]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
-                  >
-                    I Like Building Stuff Online
-                  </motion.h2>
-
-                  <motion.p
-                    className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9 }}
-                  >
-                    I'm Brad. I've done a bunch of things—like being an Army medic (2011-2014), 
-                    working construction, and helping people as a case manager. Right now, I'm a 
-                    student at Full Sail University studying web development (started Aug 2023, 
-                    3.85 GPA). I enjoy messing around with web tools and projects, and I'm getting 
-                    ready for an AWS Cloud Associate internship in Summer 2025. After that, who knows?
-                  </motion.p>
-
-                  <motion.div
-                    className="flex flex-wrap gap-4 justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.1 }}
-                  >
-                    <Button
-                      as={Link}
-                      href="/projects"
-                      size="lg"
-                      className="bg-[#fb8b24] hover:bg-[#e07a15] text-white font-bold shadow-lg hover:shadow-xl transition-all"
-                    >
-                      View My Work
-                    </Button>
-                    <Button
-                      as={Link}
-                      href="/contact"
-                      size="lg"
-                      variant="bordered"
-                      className="border-2 border-[#64ffda] text-[#64ffda] hover:bg-[#64ffda] hover:text-[#0a192f] font-bold transition-all"
-                    >
-                      Get In Touch
-                    </Button>
-                  </motion.div>
-                </CardBody>
-              </Card>
-            </motion.div>
-          </div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, repeat: Infinity, duration: 1.5 }}
+          <a
+            href="https://bradleymatera.dev/"
+            className="mt-8 inline-flex min-h-12 items-center justify-center rounded-xl bg-cyan-300 px-6 py-3 font-bold text-slate-950 transition hover:bg-cyan-200 focus:outline-none focus:ring-4 focus:ring-cyan-200/50"
           >
-            <FaArrowDown className="text-[#fb8b24] text-2xl animate-bounce" />
-          </motion.div>
-        </section>
+            Visit my current website
+            <span aria-hidden="true" className="ml-2">→</span>
+          </a>
+        </div>
 
-        {/* Featured Skills Section */}
-        <section className="py-20 px-4 bg-gradient-to-b from-[#0a192f] to-[#1c1c1c]">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#64ffda]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              What I Work With
-            </motion.h2>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[
-                "JavaScript",
-                "React",
-                "Next.js",
-                "Node.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "Docker",
-                "Git",
-              ].map((skill, index) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="bg-[#1c1c1c] hover:bg-[#fb8b24]/10 transition-all duration-300 border border-[#fb8b24]/20">
-                    <CardBody className="text-center py-4">
-                      <p className="font-semibold text-white">{skill}</p>
-                    </CardBody>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+        <section aria-labelledby="current-links" className="mt-16">
+          <h2 id="current-links" className="text-2xl font-bold text-white sm:text-3xl">
+            Current links
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {currentLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-white/[0.07] focus:outline-none focus:ring-4 focus:ring-cyan-200/40"
+              >
+                <h3 className="font-bold text-cyan-200">
+                  {link.title}
+                  <span aria-hidden="true" className="ml-2 transition group-hover:translate-x-1">
+                    →
+                  </span>
+                </h3>
+                <p className="mt-2 leading-7 text-slate-400">{link.description}</p>
+              </a>
+            ))}
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+
+        <section className="mt-16 border-t border-white/10 pt-8">
+          <h2 className="text-xl font-bold text-white">Why this site was retired</h2>
+          <p className="mt-3 max-w-3xl leading-7 text-slate-400">
+            The original portfolio was useful for documenting earlier learning and
+            projects, but its content and presentation became outdated. My current
+            website is the single source of truth so visitors and search engines do
+            not confuse old student-era material with the business and work I offer
+            today.
+          </p>
+          <p className="mt-5 text-sm text-slate-500">
+            Bradley Matera · Loves Park and Rockford, Illinois
+          </p>
+        </section>
+      </section>
+    </main>
   );
 }
