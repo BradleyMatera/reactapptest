@@ -1,53 +1,49 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
-  title: "Bradley Matera | Web Developer Portfolio",
-  description: "Professional portfolio of Bradley Matera - Army veteran and web developer passionate about creating responsive, accessible web applications.",
-  keywords: ["Bradley Matera", "Web Developer", "Full Stack Developer", "React", "Next.js", "Portfolio"],
-  authors: [{ name: "Bradley Matera" }],
-  creator: "Bradley Matera",
+  metadataBase: new URL("https://bradleymatera.dev"),
+  title: "Old Portfolio Retired | Bradley Matera",
+  description:
+    "This GitHub Pages portfolio is an old, deprecated archive. Visit bradleymatera.dev for Bradley Matera's current services, work, demos, and contact information.",
+  alternates: {
+    canonical: "https://bradleymatera.dev/",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
+    title: "This Portfolio Is Retired | Bradley Matera",
+    description:
+      "This is an old, deprecated portfolio. Visit Bradley Matera's current website for up-to-date work and services.",
+    url: "https://bradleymatera.dev/",
+    siteName: "Bradley Matera",
     type: "website",
-    locale: "en_US",
-    url: "https://bradleymatera.github.io/Professional-Portfolio-Website/",
-    title: "Bradley Matera | Web Developer Portfolio",
-    description: "Professional portfolio showcasing web development projects and skills",
-    siteName: "Bradley Matera Portfolio",
   },
 };
 
-/**
- * Refactored for UI/UX, NextUI, Tailwind, accessibility, and polish.
- * Features: custom fonts, metadata, responsive layout, Providers for theme support.
- */
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <Providers>
-          <div className="flex flex-col min-h-screen">
-            {children}
-          </div>
-        </Providers>
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
